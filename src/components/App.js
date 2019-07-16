@@ -4,7 +4,16 @@ import VideoList from "./VideoList";
 import youtube from "../apis/youtube";
 class App extends Component {
   state = {
-    videos: []
+    videos: [
+      {
+        id: 1,
+        name: "video1"
+      },
+      {
+        id: 2,
+        name: "video2"
+      }
+    ]
   };
 
   onTermSubmit = term => {
