@@ -44,16 +44,19 @@ class App extends Component {
       <div className="ui container">
         <SearchBar onFormSubmit={this.onTermSubmit} />
 
-        {this.state.selectedVideo ? (
-          <VideoDetail video={this.state.selectedVideo} />
-        ) : (
-          "Please select a Video"
-        )}
-
-        <VideoList
-          videos={this.state.videos}
-          onVideoSelect={this.onVideoSelect}
-        />
+        <div className="ui grid">
+          <div className="ui row">
+            <div className="eleven wide column">
+              <VideoDetail video={this.state.selectedVideo} />
+            </div>
+            <div className="five wide column">
+              <VideoList
+                videos={this.state.videos}
+                onVideoSelect={this.onVideoSelect}
+              />
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

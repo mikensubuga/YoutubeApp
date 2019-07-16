@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import "./VideoItem.css";
 const VideoItem = props => {
   return (
@@ -6,7 +6,7 @@ const VideoItem = props => {
       className="video-item item"
       onClick={() => props.onVideoSelect(props.video)}
     >
-      <img className="ui image" src="nothing" alt="link to image" />
+      <img className="ui image" src="nothing" alt="link to imag" />
 
       <div className="content">
         <div className="header">{props.video.name}</div>
