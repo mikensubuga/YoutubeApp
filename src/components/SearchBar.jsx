@@ -4,19 +4,22 @@ class SearchBar extends Component {
     term: ""
   };
   onInputChange = event => {
-    console.log(event.target.value);
     this.setState({ term: event.target.value });
+  };
+  onFormSubmit = event => {
+    event.preventDefault();
+    //TODO call back from parent cmp
   };
   render() {
     return (
       <div className="search-bar ui segment">
-        <form className="ui form">
+        <form onSubmit={this.onFormSubmit} className="ui form">
           <div className="field">
             <label>Video Search</label>
             <input
               type="text"
               value={this.state.term}
-              onChange={event => this.onInputChange(event)}
+              onChange={this.onInputChange}
             />
           </div>
         </form>
