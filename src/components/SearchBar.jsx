@@ -8,7 +8,8 @@ class SearchBar extends Component {
   };
   onFormSubmit = event => {
     event.preventDefault();
-    //TODO call back from parent cmp
+    //TODO: make sure we call
+    //call back from parent cmp
   };
   render() {
     return (
