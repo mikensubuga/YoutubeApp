@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import SearchBar from "./SearchBar";
 import youtube from "../apis/youtube";
 class App extends Component {
-  state = {};
+  state = {
+    videos: []
+  };
 
   onTermSubmit = term => {
     youtube
@@ -11,13 +13,14 @@ class App extends Component {
           q: term
         }
       })
-      .then()
-      .catch();
+      .then(res => this.setState({ videos: res.data }))
+      .catch(err => console.log(err));
   };
   render() {
     return (
       <div className="ui container">
-        <SearchBar onFormSubmit={this.onTermSubmit} />
+        <SearchBar onFormSubmit={this.onTermSubmit} />I have{" "}
+        {this.state.videos.length} videos
       </div>
     );
   }
