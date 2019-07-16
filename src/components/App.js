@@ -13,7 +13,8 @@ class App extends Component {
         id: 2,
         name: "video2"
       }
-    ]
+    ],
+    selectedVideo: null
   };
 
   onTermSubmit = term => {
@@ -26,12 +27,18 @@ class App extends Component {
       .then(res => this.setState({ videos: res.data }))
       .catch(err => console.log(err));
   };
+  onVideoSelect = hi => {
+    console.log("From the app" + hi.name);
+  };
   render() {
     return (
       <div className="ui container">
         <SearchBar onFormSubmit={this.onTermSubmit} />I have{" "}
         {this.state.videos.length} videos
-        <VideoList videos={this.state.videos} />
+        <VideoList
+          videos={this.state.videos}
+          onVideoSelect={this.onVideoSelect}
+        />
       </div>
     );
   }
