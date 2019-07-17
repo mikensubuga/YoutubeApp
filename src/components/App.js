@@ -5,34 +5,26 @@ import youtube from "../apis/youtube";
 import VideoDetail from "./VideoDetail";
 class App extends Component {
   state = {
-    videos: [
-      {
-        id: 1,
-        name: "video1",
-        detail: "This is a detail for Video 1"
-      },
-      {
-        id: 2,
-        name: "video2",
-        detail: "This is a detail for Video 2"
-      },
-      {
-        id: 3,
-        name: "video3",
-        detail: "This is a detail for Video 3"
-      }
-    ],
+    videos: [],
     selectedVideo: null
   };
 
   onTermSubmit = term => {
+    const KEY = "AIzaSyDP38Q6fRVtUdXn6sYIyoeYGobtdaL_L9U";
+
     youtube
       .get("/search", {
         params: {
-          q: term
+          q: term,
+          part: "snippet",
+          maxResults: 5,
+          key: KEY
         }
       })
-      .then(res => this.setState({ videos: res.data }))
+      .then(res => {
+        console.log(res.data.items);
+        this.setState({ videos: res.data.items });
+      })
       .catch(err => console.log(err));
   };
   onVideoSelect = video => {
