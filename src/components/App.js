@@ -22,8 +22,10 @@ class App extends Component {
         }
       })
       .then(res => {
-        console.log(res.data.items);
-        this.setState({ videos: res.data.items });
+        this.setState({
+          videos: res.data.items,
+          selectedVideo: res.data.items[0]
+        });
       })
       .catch(err => console.log(err));
   };
