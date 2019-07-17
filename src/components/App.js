@@ -8,6 +8,9 @@ class App extends Component {
     videos: [],
     selectedVideo: null
   };
+  componentDidMount() {
+    this.onTermSubmit("post malone");
+  }
 
   onTermSubmit = term => {
     const KEY = "AIzaSyDP38Q6fRVtUdXn6sYIyoeYGobtdaL_L9U";
