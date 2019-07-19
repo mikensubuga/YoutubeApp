@@ -1,5 +1,5 @@
 import React from "react";
-
+import Skeleton from "react-loading-skeleton";
 const VideoDetail = props => {
   if (!props.video) {
     return "Loading...";
@@ -13,6 +13,9 @@ const VideoDetail = props => {
       <div className="ui segment">
         <h4 className="ui header"> {props.video.snippet.title}</h4>
         <p>{props.video.snippet.description}</p>
+        <p>
+          <Skeleton />
+        </p>
       </div>
     </div>
   );
