@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import SearchBar from "./SearchBar";
-import VideoList from "./VideoList";
+import SearchBar from "./SearchBar/SearchBar";
+import VideoList from "./Video/VideoList/VideoList";
 import youtube from "../apis/youtube";
-import VideoDetail from "./VideoDetail";
-import Loader from "./Loader";
+import VideoDetail from "./Video/VideoDetail/VideoDetail";
+import Loader from "./UI/Loader/Loader";
 class App extends Component {
   state = {
     loading: false,
