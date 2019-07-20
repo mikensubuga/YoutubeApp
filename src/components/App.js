@@ -49,7 +49,6 @@ class App extends Component {
         <VideoList
           videos={this.state.videos}
           onVideoSelect={this.onVideoSelect}
-          loading={this.state.loading}
         />
       );
     }
@@ -60,7 +59,10 @@ class App extends Component {
         <div className="ui grid">
           <div className="ui row">
             <div className="eleven wide column">
-              <VideoDetail video={this.state.selectedVideo} />
+              <VideoDetail
+                video={this.state.selectedVideo}
+                loading={this.state.loading}
+              />
             </div>
             <div className="five wide column">{VideoL}</div>
           </div>

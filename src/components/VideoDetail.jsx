@@ -5,18 +5,30 @@ const VideoDetail = props => {
     return "Loading...";
   }
   const videoSrc = `https://www.youtube.com/embed/${props.video.id.videoId}`;
+  let videoDetails = (
+    <div className="ui segment">
+      <h4 className="ui header">
+        <Skeleton height={20} />
+      </h4>
+      <p>
+        <Skeleton count={2} />
+      </p>
+    </div>
+  );
+  if (!props.loading) {
+    videoDetails = (
+      <div className="ui segment">
+        <h4 className="ui header"> {props.video.snippet.title}</h4>
+        <p>{props.video.snippet.description}</p>
+      </div>
+    );
+  }
   return (
     <div>
       <div className="ui embed">
         <iframe src={videoSrc} title="video player" />
       </div>
-      <div className="ui segment">
-        <h4 className="ui header"> {props.video.snippet.title}</h4>
-        <p>{props.video.snippet.description}</p>
-        <p>
-          <Skeleton />
-        </p>
-      </div>
+      {videoDetails}
     </div>
   );
 };
