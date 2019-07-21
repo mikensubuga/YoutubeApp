@@ -36,11 +36,12 @@ export const fetchVideos = term => {
       })
       .then(res => {
         const fetchedVideos = [];
-        // this.setState({
-        //   videos: res.data.items,
-        //   selectedVideo: res.data.items[0],
-        //   loading: false
-        // });
+
+        // fetchedVideos = [...res.data.items];
+        // fetchedVideos.push(res.data.items[key]);
+
+        fetchedVideos = [...res.data.items];
+        const selectedVideo = res.data.items[0];
         dispatch(fetchVideosSuccess(fetchedVideos, selectedVideo));
       })
       .catch(err => {

@@ -9,12 +9,16 @@ const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.FETCH_VIDEOS_START:
       return {
-        ...state
+        ...state,
+        loading: true
         //set loading to true
       };
     case actionTypes.FETCH_VIDEOS_SUCCESS:
       return {
-        ...state
+        ...state,
+        loading: false,
+        selectedVideo: action.selectedVideo
+
         //set loading to false
       };
     case actionTypes.FETCH_VIDEOS_FAIL:
