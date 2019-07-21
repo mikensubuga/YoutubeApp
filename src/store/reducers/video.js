@@ -10,6 +10,17 @@ const reducer = (state = initialState, action) => {
     case actionTypes.FETCH_VIDEOS_START:
       return {
         ...state
+        //set loading to true
+      };
+    case actionTypes.FETCH_VIDEOS_SUCCESS:
+      return {
+        ...state
+        //set loading to false
+      };
+    case actionTypes.FETCH_VIDEOS_FAIL:
+      return {
+        ...state
+        //set loading to false
       };
   }
 };
