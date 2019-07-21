@@ -35,7 +35,7 @@ export const fetchVideos = term => {
         }
       })
       .then(res => {
-        const fetchedVideos = [];
+        let fetchedVideos = [];
 
         // fetchedVideos = [...res.data.items];
         // fetchedVideos.push(res.data.items[key]);

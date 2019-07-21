@@ -4,6 +4,10 @@ import VideoList from "../components/Video/VideoList/VideoList";
 import youtube from "../apis/youtube";
 import VideoDetail from "../components/Video/VideoDetail/VideoDetail";
 import Loader from "../components/UI/Loader/Loader";
+
+import * as actions from "../store/actions/video";
+import { connect } from "react-redux";
+
 class App extends Component {
   state = {
     loading: false,
@@ -11,7 +15,8 @@ class App extends Component {
     selectedVideo: null
   };
   componentDidMount() {
-    this.onTermSubmit("post malone");
+    this.props.onTermSubmit("ed sheeran");
+    // this.onTermSubmit("post malone");
   }
 
   onTermSubmit = term => {
@@ -71,5 +76,22 @@ class App extends Component {
     );
   }
 }
+const mapStateToProps = state => {
+  return {
+    loading: state.loading,
+    videos: state.videos,
+    selectedVideo: state.selectedVideo
+  };
+};
+const mapDispatchToProps = dispatch => {
+  return {
+    onTermSubmit: term => {
+      dispatch(actions.fetchVideos(term));
+    }
+  };
+};
 
-export default App;
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);

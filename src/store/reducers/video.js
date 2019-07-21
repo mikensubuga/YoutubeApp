@@ -2,7 +2,8 @@ import * as actionTypes from "../actions/actionTypes";
 const initialState = {
   loading: false,
   videos: [],
-  selectedVideo: null
+  selectedVideo: null,
+  error: false
 };
 
 const reducer = (state = initialState, action) => {
@@ -17,15 +18,20 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-        selectedVideo: action.selectedVideo
+        selectedVideo: action.selectedVideo,
+        videos: action.videos
 
         //set loading to false
       };
     case actionTypes.FETCH_VIDEOS_FAIL:
       return {
-        ...state
+        ...state,
+        loading: false,
+        error: action.error
         //set loading to false
       };
+    default:
+      return state;
   }
 };
 
