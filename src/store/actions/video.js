@@ -50,3 +50,9 @@ export const fetchVideos = term => {
       });
   };
 };
+export const selectVideo = video => {
+  return {
+    type: actionTypes.SELECT_VIDEO,
+    video: video
+  };
+};
