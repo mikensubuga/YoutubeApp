@@ -30,6 +30,11 @@ const reducer = (state = initialState, action) => {
         error: action.error
         //set loading to false
       };
+    case actionTypes.SELECT_VIDEO:
+      return {
+        ...state,
+        selectedVideo: action.video
+      };
     default:
       return state;
   }

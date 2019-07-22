@@ -43,17 +43,17 @@ class App extends Component {
   //       this.setState({ loading: false });
   //     });
   // };
-  onVideoSelect = video => {
-    console.log("From the app ", video);
-    this.setState({ selectedVideo: video });
-  };
+  // onVideoSelect = video => {
+  //   console.log("From the app ", video);
+  //   this.setState({ selectedVideo: video });
+  // };
   render() {
     let VideoL = <Loader />;
     if (!this.props.loading) {
       VideoL = (
         <VideoList
           videos={this.props.videos}
-          onVideoSelect={this.onVideoSelect}
+          onVideoSelect={this.props.onVideoSelect}
         />
       );
     }
@@ -87,6 +87,9 @@ const mapDispatchToProps = dispatch => {
   return {
     onTermSubmit: term => {
       dispatch(actions.fetchVideos(term));
+    },
+    onVideoSelect: video => {
+      dispatch(actions.selectVideo(video));
     }
   };
 };
