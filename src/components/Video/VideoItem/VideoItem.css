@@ -1,10 +1,10 @@
 .video-item {
-  display: flex !important;
-  align-items: center !important;
+  /* display: flex !important;
+  align-items: center !important; */
   cursor: pointer;
 }
 
-.image {
+/* .image {
   width: 270px;
   height: 150px;
-}
+} */

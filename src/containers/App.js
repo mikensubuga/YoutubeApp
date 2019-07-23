@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import SearchBar from "../components/SearchBar/SearchBar";
 import VideoList from "../components/Video/VideoList/VideoList";
-import youtube from "../apis/youtube";
 import VideoDetail from "../components/Video/VideoDetail/VideoDetail";
 import Loader from "../components/UI/Loader/Loader";
 

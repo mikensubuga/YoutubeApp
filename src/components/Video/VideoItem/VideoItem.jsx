@@ -1,9 +1,14 @@
 import React from "react";
 import "./VideoItem.css";
+
 const VideoItem = props => {
   const imageURL = props.video.snippet.thumbnails.medium.url;
   return (
-    <div className="ui item" onClick={() => props.onVideoSelect(props.video)}>
+    <div
+      className="ui item"
+      onClick={() => props.onVideoSelect(props.video)}
+      style={{ cursor: "pointer" }}
+    >
       <img
         className="ui image"
         src={imageURL}
