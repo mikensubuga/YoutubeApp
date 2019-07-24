@@ -9,8 +9,6 @@ class SearchBar extends Component {
   onFormSubmit = event => {
     event.preventDefault();
     this.props.onFormSubmit(this.state.term);
-    //TODO: make sure we call
-    //call back from parent cmp
   };
   render() {
     return (
