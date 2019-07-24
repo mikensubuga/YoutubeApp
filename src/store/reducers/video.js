@@ -12,7 +12,6 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         loading: true
-        //set loading to true
       };
     case actionTypes.FETCH_VIDEOS_SUCCESS:
       return {
@@ -20,15 +19,12 @@ const reducer = (state = initialState, action) => {
         loading: false,
         selectedVideo: action.selectedVideo,
         videos: action.videos
-
-        //set loading to false
       };
     case actionTypes.FETCH_VIDEOS_FAIL:
       return {
         ...state,
         loading: false,
         error: action.error
-        //set loading to false
       };
     case actionTypes.SELECT_VIDEO:
       return {
